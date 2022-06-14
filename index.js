@@ -35,6 +35,7 @@ async function run() {
                 console.log('getting a specific id', id);
                 const query = {_id: ObjectId(id)};
                 const service = await serviceCollection.findOne(query);
+
                 res.send(service);
 
             });
@@ -69,6 +70,10 @@ run().catch(console.dir);
 
 app.get('/', (req, res) =>{
     res.send('Running genius car server')
+});
+
+app.get('/hello', (req, res) =>{
+    res.send('heroku deploy here')
 })
 
 app.listen(port, ()=>{
